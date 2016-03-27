@@ -18,6 +18,11 @@ var AlgorithmsDynamicValue = function() {
         return md5(this.input.split(","));
       }
     }
+    else if (this.algorithm_name == "read_file") {
+      if(this.input){
+        fs.readFileSync(this.input);
+      }
+    }
     else {
       return "Choose one algorithm first";
     }
@@ -64,7 +69,7 @@ AlgorithmsDynamicValue.identifier = "com.seaify.algorithms";
 AlgorithmsDynamicValue.title = "algorithms";
 AlgorithmsDynamicValue.inputs = [
   DynamicValueInput("algorithm_name", "Algorithms", "Select", {
-    "choices": { "bytes": "bytes", "b64encode": "b64encode", "b64decode": "b64decode", "md5_bytes": "md5_bytes", }
+    "choices": { "bytes": "bytes", "b64encode": "b64encode", "b64decode": "b64decode", "md5_bytes": "md5_bytes", "read_file": "read_file"}
   }),
   DynamicValueInput("input", "Input", "String"),
     ];
