@@ -15,12 +15,10 @@ var AlgorithmsDynamicValue = function() {
     }
     else if (this.algorithm_name == "md5_bytes") {
       if(this.input){
-        return md5(this.input);
-        //md5 encrypt bytes problem
+        return md5(this.input.split(","));
       }
     }
     else {
-      array = ["Choose one algorithm first"];
       return "Choose one algorithm first";
     }
   };
@@ -66,7 +64,7 @@ AlgorithmsDynamicValue.identifier = "com.seaify.algorithms";
 AlgorithmsDynamicValue.title = "algorithms";
 AlgorithmsDynamicValue.inputs = [
   DynamicValueInput("algorithm_name", "Algorithms", "Select", {
-    "choices": { "bytes": "bytes", "b64encode": "b64encode", "b64decode": "b64decode", "md5_bytes": "md5_bytes" }
+    "choices": { "bytes": "bytes", "b64encode": "b64encode", "b64decode": "b64decode", "md5_bytes": "md5_bytes", }
   }),
   DynamicValueInput("input", "Input", "String"),
     ];
